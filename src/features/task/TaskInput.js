@@ -23,12 +23,12 @@ const TaskInput = () => {
 
   const createClicked = () => {
     dispatch(fetchAsyncCreate(editedTask));
-    dispatch(editedTask({ id: 0, title: "" }));
+    dispatch(editTask({ id: 0, title: "" }));
   };
 
   const updateClicked = () => {
     dispatch(fetchAsyncUpdate(editedTask));
-    dispatch(editedTask({ id: 0, title: "" }));
+    dispatch(editTask({ id: 0, title: "" }));
   };
 
   return (
