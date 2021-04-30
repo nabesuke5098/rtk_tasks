@@ -49,6 +49,7 @@ const taskSlice = createSlice({
     tasks: [
       {
         id: 0,
+        userId: 0,
         title: "",
         created_at: "",
         updated_at: "",
@@ -56,12 +57,14 @@ const taskSlice = createSlice({
     ],
     editedTask: {
       id: 0,
+      userId: 0,
       title: "",
       created_at: "",
       updated_at: "",
     },
     selectedTask: {
       id: 0,
+      userId: 0,
       title: "",
       created_at: "",
       updated_at: "",

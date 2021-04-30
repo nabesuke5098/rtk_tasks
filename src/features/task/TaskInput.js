@@ -8,14 +8,16 @@ import {
   editTask,
   selectEditedTask,
 } from "./taskSlice";
+import { selectProfile } from "../login/loginSlice";
 
 const TaskInput = () => {
   const dispatch = useDispatch();
   const editedTask = useSelector(selectEditedTask);
+  const profile = useSelector(selectProfile);
 
   const handleInputChange = (e) => {
     editedTask.id === 0
-      ? dispatch(editTask({ id: 0, title: e.target.value }))
+      ? dispatch(editTask({ id: 0, userId: profile.id, title: e.target.value }))
       : dispatch(editTask({ id: editedTask.id, title: e.target.value }));
   };
 
@@ -23,12 +25,12 @@ const TaskInput = () => {
 
   const createClicked = () => {
     dispatch(fetchAsyncCreate(editedTask));
-    dispatch(editTask({ id: 0, title: "" }));
+    dispatch(editTask({ id: 0, userId: profile.id, title: "" }));
   };
 
   const updateClicked = () => {
     dispatch(fetchAsyncUpdate(editedTask));
-    dispatch(editTask({ id: 0, title: "" }));
+    dispatch(editTask({ id: 0, userId: profile.id, title: "" }));
   };
 
   return (
